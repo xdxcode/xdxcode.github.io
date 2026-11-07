@@ -1,0 +1,430 @@
+
+/* =====================================
+   GLOBAL SETTINGS
+===================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    color: #F1F5F9;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =====================================
+   PAGE BACKGROUNDS
+===================================== */
+
+.home {
+    background-color: #081B33;
+}
+
+.about {
+    background-color: #102B46;
+}
+
+.my-skills {
+    background-color: #0B2545;
+}
+
+.journey {
+    background-color: #123B5D;
+}
+
+.projects {
+    background-color: #102A43;
+}
+
+.certificate {
+    background-color: #16324F;
+}
+
+.gallery {
+    background-color: #0D3048;
+}
+
+.contact {
+    background-color: #142D4E;
+}
+
+.home,
+.about,
+.my-skills,
+.journey,
+.projects,
+.certificate,
+.gallery,
+.contact {
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* =====================================
+   NAVIGATION
+===================================== */
+
+a {
+    text-decoration: none;
+    color: #E0F2FE;
+    margin-left: 1%;
+    font-size: 130%;
+    font-weight: 700;
+    transition: color 0.3s ease,
+                text-shadow 0.3s ease;
+}
+
+a:hover {
+    color: #38BDF8;
+    text-decoration: underline;
+    text-shadow: 0 0 6px #38BDF8;
+}
+
+.pages {
+    text-align: right;
+}
+
+/* =====================================
+   BRANDING AND HEADINGS
+===================================== */
+
+.xdx {
+    color: #3B82F6;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.code {
+    color: #67E8F9;
+}
+
+.title {
+    color: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 250%;
+    width: 45%;
+}
+
+.sub-heading {
+    color: #7DD3FC;
+    font-size: 20px;
+}
+
+h2 {
+    color: #FFFFFF;
+    font-size: 500%;
+}
+
+.course {
+    color: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 150%;
+}
+
+.writing {
+    color: #D1FAE5;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =====================================
+   BUTTONS
+===================================== */
+
+button {
+    background-color: #087E8B;
+    border: 1px solid #22D3EE;
+    border-radius: 8px;
+    height: 50px;
+    width: 200px;
+    font-size: 20px;
+    box-shadow: 2px 4px 6px #064E63;
+    color: #ECFEFF;
+    font-weight: 900;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #2563EB;
+    box-shadow: 0 0 12px #06B6D4;
+    transform: translateY(-3px);
+    cursor: pointer;
+}
+
+/* =====================================
+   TABLES
+===================================== */
+
+table {
+    border: 2px solid #3B82F6;
+    border-radius: 15px;
+    background-color: #0B2545;
+    padding: 10px;
+    box-shadow: 2px 4px 6px #1D4ED8;
+    width: 600px;
+}
+
+.ctable {
+    border: 2px solid #38BDF8;
+    border-radius: 15px;
+    background-color: #102A43;
+    padding: 5px;
+    box-shadow: 2px 4px 6px #2563EB;
+    width: 300px;
+}
+
+.laptop-table {
+    background-image: url("LAptop.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 600px;
+    height: 400px;
+    transform: skew(-10deg);
+}
+
+.laptop-table img {
+    width: 100%;
+    height: auto;
+    transform: skew(10deg);
+}
+
+th b {
+    color: #FFFFFF;
+    font-size: 150%;
+}
+
+/* =====================================
+   SPECIAL LINKS
+===================================== */
+
+a.view {
+    text-decoration: underline #38BDF8;
+    color: #7DD3FC;
+    font-size: 100%;
+}
+
+a.view:hover {
+    font-size: 120%;
+    color: #22D3EE;
+}
+
+/* =====================================
+   CERTIFICATES
+===================================== */
+
+.certificate-container {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+
+/* =====================================
+   SKILLS
+===================================== */
+
+.skills {
+    display: flex;
+    gap: 4%;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+
+.python-logo,
+.html-logo,
+.css-logo {
+    width: 100px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.python-logo:hover,
+.html-logo:hover,
+.css-logo:hover {
+    transform: scale(1.12) rotate(5deg);
+}
+
+.skill {
+    width: 180px;
+    background-color: #102A43;
+    border: 1px solid #2563EB;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 0 transparent;
+    transition: all 0.3s ease;
+}
+
+.skill:hover {
+    transform: translateY(-6px) scale(1.02);
+    border-color: #22D3EE;
+    box-shadow: 0 0 10px #06B6D4,
+                0 0 20px rgba(6, 182, 212, 0.3);
+}
+
+.tech {
+    color: #FFFFFF;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 110%;
+}
+
+/* =====================================
+   ATTRIBUTES
+===================================== */
+
+.attributes {
+    display: flex;
+    gap: 2%;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+
+.attribute {
+    width: 200px;
+}
+
+/* =====================================
+   HOMEPAGE LAYOUT
+===================================== */
+
+.ab {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 30px;
+}
+
+.side-img {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.side-img img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* =====================================
+   OTHER ELEMENTS
+===================================== */
+
+.linki {
+    display: flex;
+    justify-content: space-between;
+}
+
+.project-title {
+    font-size: 60px;
+}
+
+/* =====================================
+   TABLET AND MOBILE
+===================================== */
+
+@media screen and (max-width: 768px) {
+
+    .home,
+    .about,
+    .my-skills,
+    .journey,
+    .projects,
+    .certificate,
+    .gallery,
+    .contact {
+        padding: 16px;
+    }
+
+    .pages {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 12px 16px;
+        width: 100%;
+        padding: 15px 5px;
+    }
+
+    .pages a {
+        font-size: 15px;
+        margin: 0;
+        white-space: nowrap;
+    }
+
+    .xdx {
+        font-size: 30px;
+    }
+
+    .title {
+        width: 100%;
+        font-size: clamp(2rem, 7vw, 4rem);
+    }
+
+    .writing {
+        font-size: clamp(1rem, 3vw, 1.2rem);
+        line-height: 1.5;
+    }
+
+    .sub-heading {
+        font-size: clamp(1rem, 3.5vw, 1.5rem);
+    }
+
+    h2 {
+        font-size: clamp(2rem, 8vw, 3.5rem);
+    }
+
+    .project-title {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .ab {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .side-img {
+        width: 100%;
+    }
+
+    .laptop-table {
+        width: 100%;
+        max-width: 450px;
+        height: 260px;
+        transform: none;
+    }
+
+    .skills,
+    .attributes,
+    .certificate-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .skill,
+    .attribute {
+        width: 100%;
+    }
+
+    table,
+    .ctable {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    button {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 10px;
+    }
+
+    .linki {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+}

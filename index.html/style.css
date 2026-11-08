@@ -432,3 +432,56 @@ a.view:hover {
         gap: 15px;
     }
 }
+
+pre {
+    background-color: #081B33;
+    color: #E0F2FE;
+    padding: 20px;
+    border-radius: 12px;
+    overflow-x: auto;
+    white-space: pre;
+    line-height: 1.6;
+}
+
+code {
+    font-family: monospace;
+    font-size: 14px;
+}
+
+.earn {
+    color: #087F5B;
+}
+
+.vault {
+    color: #9A9696;
+}
+
+.download-table {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 180px;
+    background-color: #102A43;
+    border: 1px solid #2563EB;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 0 transparent;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.download-table:hover {
+    transform: translateY(-6px) scale(1.02);
+    border-color: #22D3EE;
+    box-shadow: 0 0 10px #06B6D4,
+                0 0 20px rgba(6, 182, 212, 0.3);
+}
+
+.download {
+    display: block;
+    position: static;
+    margin: 0;
+    text-align: center;
+    font-size: 16px;
+    color: #7DD3FC;
+}

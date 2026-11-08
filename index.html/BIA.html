@@ -1,0 +1,513 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align: center;">
+        <b class="earn">Earn</b> <b class="vault">Vault</b> <b>Source Code</b>
+    </h1>
+
+    <table class="download-table">
+        <tr>
+            <th>
+                <a href="Business Inventory App.py" class="download" class="download" download>Download Code</a>
+            </th>
+        </tr>
+    </table>
+        
+    <pre><code>
+        import json
+import os
+import pyfiglet
+from datetime import datetime
+
+dollar_unit = "💲"
+acct_bal = 0.0
+
+products = []
+prices = []
+quantities = []
+sales = []
+
+
+data_file = "shopstock.json"
+
+def save_data():
+    data = {
+        "products": products,
+        "prices": prices,
+        "quantities": quantities,
+        "acct_bal": acct_bal,
+        "sales": sales
+    }
+
+    with open(data_file, "w") as file:
+        json.dump(data, file, indent=5)
+
+def load_data():
+    global acct_bal
+
+    if os.path.exists(data_file):
+        with open(data_file, "r") as file:
+            data = json.load(file)
+
+        products.extend(data["products"])
+        prices.extend(data["prices"])
+        quantities.extend(data["quantities"])
+        acct_bal = data["acct_bal"]
+        sales.extend(data.get("sales", []))
+
+
+#Definitions
+def account_balance():
+    print("\n")
+    print("ACCOUNT BALANCE")
+    print(f"Current Balance: {dollar_unit}{acct_bal:.2f}")
+
+
+
+
+def product_management():
+    print("\n")
+    running = True
+            
+    while running: 
+
+        print("Product Management")
+        print()
+        print("1. Add Product")
+        print("2. Remove Product")
+        print("3. Product List")
+        print("4. Search Product")
+        print("5. Main Menu")
+        print("6. Exit App")   
+            
+        
+        
+        try:
+            product_management_choice = int(input("> "))
+    
+            if product_management_choice == 1:
+                add_product()
+                    
+                
+            elif product_management_choice == 2:
+                remove_product()
+            
+            elif product_management_choice == 3:
+                product_list()
+
+            elif product_management_choice == 4:
+                search_product()
+
+            elif product_management_choice == 5:
+                break
+            
+            elif product_management_choice == 6:
+                exit()
+
+            else:
+                print("Invalid choice! Please select 1-6.")
+            
+        except ValueError:
+            print("Invalid Input! Try again!")
+            continue
+
+    
+            
+    
+
+
+
+def add_product():
+    print("\n")
+    print("Fill in the product's details respectively below:")
+    print("Type in 'done' to go to Main Menu when you have finished entering the new products details")
+    
+    running = True
+    while running:
+
+        name = input("NAME: ")
+        if name.lower() == "done":
+            print("All new products saved successsfully")
+            break
+
+        if name.isdigit():
+            print("Product name cannot contain only numbers!")
+            continue
+
+        duplicate = False
+
+        for product in products:
+            if product.lower() == name.lower():
+                duplicate = True
+                break
+
+        if duplicate:
+            print("This products already exists!")
+            continue
+
+        
+        #PRICE
+        while True:
+            try:
+                price = float(input("PRICE: "))
+                
+            
+
+            except ValueError:
+                print("Please enter a valid number!")
+                continue 
+
+            if price < 0:
+                print("Price cannot have a negative value!")
+                continue
+            
+            break
+
+        
+        #QUANTITY
+        while True:
+            try:
+                quantity = int(input("QUANTITY: "))
+
+            except ValueError:
+                print("Please enter a valid number!")
+                continue
+
+            if quantity < 0:
+                print("Quantity value cannot be negative!")
+                continue
+            
+            break
+        
+        products.append(name)
+        prices.append(price)
+        quantities.append(quantity)
+
+        save_data()
+            
+        print(products)
+        print(f"New product, {name} has been verified and saved!")
+        
+
+
+def remove_product():
+    print("\n")
+    print("Type in the index number of the product you wish to remove")
+    print("Note: Product index number start from 0!")
+    print("Type in 'done' to return to Product Management.")
+    print()
+        
+    running = True
+    while running:
+        print(products)
+        print(prices)
+        print("\n")
+
+        choice = input("> ")
+
+        if choice.lower() == "done":
+            break
+        
+        try:
+            remove_product_choice = int(choice)
+
+            if 0 <= remove_product_choice < len(products):
+
+                products.pop(remove_product_choice)
+                prices.pop(remove_product_choice)
+                quantities.pop(remove_product_choice)
+
+                save_data()
+
+                print("Product removed successfully")
+            else:
+                print("Invalid Product Index!")
+        
+        except ValueError:
+            print("Please enter a valid index number or 'done'!")
+            continue
+        
+
+def product_list():
+    print("\n")
+    print("Product List")
+    print("Below are your current list of products")
+    print("Enter '0' to exit to Main Menu")
+
+    for i in range(len(products)):
+        print(f"{i+1}. {products[i]} - {dollar_unit}{prices[i]} - Stock: {quantities[i]}")
+    
+    total_products = len(products)
+    total_product_cost = sum(prices)
+    print(f"Total Product Prices: {dollar_unit}{total_product_cost}")
+    print("\n")
+    print(f"You have a total of {total_products} products on your list.")
+    running = True
+    while running:
+            
+        product_list_choice = input("> ")
+
+        if product_list_choice == "0":
+            break
+        else:
+            print("Invalid Input! Enter 0 to exit.")
+            continue
+        
+#search for a product
+def search_product():
+    print("Product Search")
+    print("Type 'e' to exit this section")
+    search = input("> ")
+
+    found = False
+
+    for i in range(len(products)):
+        if products[i].lower() == search.lower():
+            found = True      
+            print(f"{products[i]} - {dollar_unit}{prices[i]} - Stock: {quantities[i]}")
+            
+
+    if not found:
+        print("Product not found!")
+        
+    
+
+
+def record_sale():
+    global acct_bal
+    print("\n")
+    print("Sale Records")
+    
+    product_name = input("PRODUCT NAME: ").strip()
+
+    found = False
+
+    for i in range(len(products)):
+        if products[i].lower() == product_name.lower():
+            found = True
+            break
+
+    if not found:
+        print("Product not found!")
+        return
+    
+    print(f"PRODUCT: {products[i]}")
+    print(f"PRICE PER UNIT: {dollar_unit}{prices[i]}")
+    print(f"AVAILABLE STOCK: {quantities[i]}")
+
+    while True:
+        try:
+            quantity_sold = int(input("QUANTITY SOLD: "))
+
+        except ValueError:
+            print("Enter a valid whole number!")
+            continue
+
+        if quantity_sold <= 0:
+            print("Quantity sold must be greater than zero!")
+            continue
+
+        if quantity_sold > quantities[i]:
+            print("Not enough stock available!")
+            continue
+
+        break
+    total_sale = prices[i] * quantity_sold
+    quantities[i] -= quantity_sold
+
+    acct_bal += total_sale
+
+    sale_record = {
+    "product": products[i],
+    "quantity": quantity_sold,
+    "unit_price": prices[i],
+    "total": total_sale,
+    "date_time": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    }
+
+    sales.append(sale_record)
+
+
+    print("\nSale completed successfully!")
+    print(f"Product: {products[i]}")
+    print(f"Quantity sold: {quantity_sold}")
+    print(f"Total sale: {dollar_unit}{total_sale}")
+    print(f"Remaining stock: {quantities[i]}")
+    print(f"Updated account balance: {dollar_unit}{acct_bal}")
+
+    save_data()
+    
+
+def low_stock_alerts():
+    print("\n LOW-STOCK ALERTS")
+
+    try:
+        stock_limit = int(input("Enter low-stock limit: "))
+
+    except ValueError:
+        print("Please enter a valid number!")
+        return
+
+    if stock_limit < 0:
+        print("Stock limit cannot be negative!")
+        return
+
+    found = False
+
+    for i in range(len(products)):
+        if quantities[i] <= stock_limit:
+            
+            found = True
+
+            print(
+                f"{products[i]} - Stock: {quantities[i]}"
+                " - LOW STOCK!"
+            )
+
+    if not found:
+        print("No products are at or below that stock limit.")
+
+
+def business_reports():
+    print("\n BUSINESS REPORTS")
+
+    total_products = len(products)
+    total_units = sum(quantities)
+    stock_value = 0
+
+    for i in range(len(products)):
+        stock_value += prices[i] * quantities[i]
+
+    print(f"Number of products: {total_products}")
+    print(f"Total units in stock: {total_units}")
+    print(f"Current stock value at selling prices: {dollar_unit}{stock_value:.2f}")
+    print(f"Account balance: {dollar_unit}{acct_bal:.2f}")
+
+def view_sales_history():
+    print("\nSALES HISTORY")
+
+    if not sales:
+        print("No sales have been recorded yet.")
+        return
+
+    for i in range(len(sales)):
+        print(f"\nSale #{i + 1}")
+        print(f"Date and time: {sales[i].get('date_time', 'Not recorded')}")
+        print(f"Product: {sales[i]['product']}")
+        print(f"Quantity sold: {sales[i]['quantity']}")
+        print(f"Price per unit: {dollar_unit}{sales[i]['unit_price']:.2f}")
+        print(f"Total sale: {dollar_unit}{sales[i]['total']:.2f}")
+
+
+def restock():
+    print("RESTOCK")
+    print("Enter the name of product you want to restock:" \
+    "NOTE: Only existing products can be restocked!")
+    
+    product_name = input("NAME: ").strip()
+
+    found = False
+
+    for i in range(len(products)):
+        if products[i].lower() == product_name.lower():
+            found = True
+            break
+
+
+    if not found:
+        print("Add the prodct first.")
+        return
+
+    print(f"PRODUCT: {products[i]}")
+    print(f"CURRENT STOCK: {quantities[i]}")
+
+    while True:
+        try:
+            quantity_added = int(input("QUANTITY TO ADD: "))
+
+        except ValueError:
+            print("Enter a valid number!")
+            continue
+
+        if quantity_added <= 0:
+            print("Quantity must be greater than zero!")
+            continue
+
+        break
+
+    quantities[i] += quantity_added
+
+    print("\nRestock successful!")
+    print(f"PRODUCT: {products[i]}")
+    print(f"QUANTITY ADDED: {quantity_added}")
+    print(f"NEW STOCK: {quantities[i]}")
+
+    save_data()
+
+
+
+
+#Name of App
+load_data()
+
+print(pyfiglet.figlet_format("SHOP STOCK", font="small"))
+print("Welcome to Shop Stock!, an inventory management system.")
+
+running = True
+
+while running:
+
+    print("\nMain Menu")
+    print("Type in your option below")
+    print("1. Product Management")
+    print("2. Record a Sale")
+    print("3. Restock Products")
+    print("4. View Business Reports")
+    print("5. Low-Stock Alerts")
+    print("6. Account Balance")
+    print("7. View Sales History")
+    print("8. Exit")
+
+    try:
+        shopstock = int(input("> "))
+
+    except ValueError:
+        print("Please enter a valid number!")
+        continue
+    
+
+    if shopstock == 1:
+        product_management()
+
+    elif shopstock == 2:
+        record_sale()
+
+    elif shopstock == 3:
+        restock()
+
+    elif shopstock == 4:
+        business_reports()
+
+    elif shopstock == 5:
+        low_stock_alerts()
+
+    elif shopstock == 6:
+        account_balance()
+
+    elif shopstock == 7:
+        view_sales_history()
+
+    elif shopstock == 8:
+        print("Thank you for using SHOPSTOCK!")
+        running = False
+
+    else:
+        print("This feature is unavaiable yet.")
+
+    </code></pre>
+</body>
+</html>

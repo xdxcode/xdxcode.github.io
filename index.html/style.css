@@ -81,6 +81,10 @@ a:hover {
     text-shadow: 0 0 6px #38BDF8;
 }
 
+a:visited {
+    color: #5e000e;
+}
+
 .pages {
     text-align: right;
 }
@@ -89,13 +93,13 @@ a:hover {
    BRANDING AND HEADINGS
 ===================================== */
 
-.xdx {
-    color: #3B82F6;
+.x {
+    color: #FFFFFF;
     font-family: 'Times New Roman', Times, serif;
 }
 
-.code {
-    color: #67E8F9;
+.d {
+    color: #1d4693;
 }
 
 .title {

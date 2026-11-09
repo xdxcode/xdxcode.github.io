@@ -236,7 +236,8 @@ a.view:hover {
 
 .python-logo,
 .html-logo,
-.css-logo {
+.css-logo,
+.js-logo {
     width: 100px;
     height: auto;
     transition: transform 0.3s ease;
@@ -244,7 +245,8 @@ a.view:hover {
 
 .python-logo:hover,
 .html-logo:hover,
-.css-logo:hover {
+.css-logo:hover,
+.js-logo:hover {
     transform: scale(1.12) rotate(5deg);
 }
 

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +8,9 @@
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="home">
+
     <div class="pages">
         <a href="index.html">Home</a>
         <a href="Portfolio About.html">About</a>
@@ -24,17 +27,19 @@
             <b class="x">X</b><b class="d">D</b><b class="x">X</b><b class="x">CODE</b>
         </h1>
 
-        <h1 class="sub-heading">// FULL-STACK DEVELOPER</h1>
+        <h1 class="sub-heading">
+            // <span id="typing-text"></span>
+        </h1>
     </div>
 
     <div class="ab">
         <div class="title">
-        <p>
-            <b class="building">Building</b><br>
-            <b>Digital</b><br>
-            <b>Experiences</b><br>
-            <b>That Matter</b>
-        </p>
+            <p>
+                <b class="building">Building</b><br>
+                <b>Digital</b><br>
+                <b>Experiences</b><br>
+                <b>That Matter</b>
+            </p>
         </div>
 
         <div class="side-img">
@@ -54,18 +59,59 @@
     </p>
 
     <a href="Portfolio Projects.html">
-                    <button>
-                        View Projects
-                    </button>
-                </a>
-    
+        <button>
+            View Projects
+        </button>
+    </a>
 
     <a href="Portfolio Contact.html">
         <button>
             Contact
         </button>
     </a>
-    
+
+    <!-- TYPING ANIMATION JAVASCRIPT -->
+    <script>
+        const phrases = [
+            "ASPIRING SOFTWARE ENGINEER",
+            "PYTHON DEVELOPER",
+            "WEB DEVELOPER",
+            "CREATIVE BUILDER"
+        ];
+
+        const typingText = document.getElementById("typing-text");
+
+        let phraseIndex = 0;
+        let letterIndex = 0;
+        let deleting = false;
+
+        function typeEffect() {
+            let currentPhrase = phrases[phraseIndex];
+
+            if (deleting) {
+                letterIndex--;
+            } else {
+                letterIndex++;
+            }
+
+            typingText.textContent = currentPhrase.substring(0, letterIndex);
+
+            if (!deleting && letterIndex === currentPhrase.length) {
+                deleting = true;
+                setTimeout(typeEffect, 1200);
+                return;
+            }
+
+            if (deleting && letterIndex === 0) {
+                deleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+            }
+
+            setTimeout(typeEffect, deleting ? 50 : 100);
+        }
+
+        typeEffect();
+    </script>
 
 </body>
 </html>

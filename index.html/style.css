@@ -540,3 +540,17 @@ button:active,
 .download-button2:active {
     transform: scale(0.97);
 }
+
+
+#typing-text {
+    color: #7DD3FC;
+    border-right: 3px solid #7DD3FC;
+    padding-right: 5px;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}

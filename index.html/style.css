@@ -524,3 +524,19 @@ code {
     }
 }
 
+/* Disable hover effects on touchscreens */
+@media (hover: none) {
+    button:hover,
+    .download-button:hover,
+    .download-button2:hover {
+        transform: none;
+        box-shadow: 0 0 0 transparent;
+    }
+}
+
+/* Small animation when tapped */
+button:active,
+.download-button:active,
+.download-button2:active {
+    transform: scale(0.97);
+}

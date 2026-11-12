@@ -431,6 +431,14 @@ code {
     border-radius: 50%;
     font-size: 22px;
     z-index: 2000;
+
+    cursor: grab;
+    touch-action: none;
+    user-select: none;
+}
+
+#themeToggle:active {
+    cursor: grabbing;
 }
 
 /* =====================================

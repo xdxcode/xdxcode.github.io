@@ -111,7 +111,43 @@
         }
 
         typeEffect();
+
+        const topButton = document.getElementById("topButton");
+
+window.onscroll = function() {
+    if (document.documentElement.scrollTop > 200) {
+    topButton.style.display = "flex";
+    } else {
+    topButton.style.display = "none";
+    }
+};
+
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+const themeToggle = document.getElementById("themeToggle");
+
+function toggleTheme() {
+    document.body.classList.toggle("light-theme");
+
+    if (document.body.classList.contains("light-theme")) {
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+    } else {
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    }
+}
     </script>
+<button id="topButton" onclick="scrollToTop()">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<button id="themeToggle" onclick="toggleTheme()">
+    <i class="fas fa-sun"></i>
+</button>
 
 </body>
 </html>

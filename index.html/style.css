@@ -145,6 +145,10 @@ button {
     color: #ECFEFF;
     font-weight: 900;
     transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 button:hover {
@@ -553,4 +557,65 @@ button:active,
     50% {
         border-color: transparent;
     }
+}
+
+#topButton {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+
+    width: 65px;
+    height: 65px;
+    padding: 0;
+
+    border-radius: 50%;
+    font-size: 28px;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #087E8B;
+    border: 2px solid #22D3EE;
+    z-index: 1000;
+}
+
+/* Theme toggle button */
+#themeToggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 22px;
+    z-index: 2000;
+}
+
+/* Light theme */
+body.light-theme {
+    background-color: #F1F5F9;
+    color: #102A43;
+}
+
+body.light-theme .pages a {
+    color: #102A43;
+}
+
+body.light-theme .sub-heading,
+body.light-theme .writing {
+    color: #235391;
+}
+
+body.light-theme .title,
+body.light-theme .title b {
+    color: #102A43;
+}
+
+body.light-theme button {
+    background-color: #DCEAF5;
+    color: #102A43;
+    border-color: #2563EB;
+    box-shadow: none;
 }

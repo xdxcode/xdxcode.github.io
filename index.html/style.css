@@ -17,37 +17,14 @@ body {
    PAGE BACKGROUNDS
 ===================================== */
 
-.home {
-    background-color: #081B33;
-}
-
-.about {
-    background-color: #102B46;
-}
-
-.my-skills {
-    background-color: #1d4e89;
-}
-
-.journey {
-    background-color: #092e4b;
-}
-
-.projects {
-    background-color: #102A43;
-}
-
-.certificate {
-    background-color: #0f3258;
-}
-
-.gallery {
-    background-color: #0D3048;
-}
-
-.contact {
-    background-color: #235391;
-}
+.home { background-color: #081B33; }
+.about { background-color: #102B46; }
+.my-skills { background-color: #1d4e89; }
+.journey { background-color: #092e4b; }
+.projects { background-color: #102A43; }
+.certificate { background-color: #0f3258; }
+.gallery { background-color: #0D3048; }
+.contact { background-color: #235391; }
 
 .home,
 .about,
@@ -71,8 +48,7 @@ a {
     margin-left: 1%;
     font-size: 130%;
     font-weight: 700;
-    transition: color 0.3s ease,
-                text-shadow 0.3s ease;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 a:hover {
@@ -145,6 +121,7 @@ button {
     color: #ECFEFF;
     font-weight: 900;
     transition: all 0.3s ease;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -233,6 +210,8 @@ a.view:hover {
 
 .skills {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 4%;
     align-items: flex-start;
     margin-bottom: 40px;
@@ -334,110 +313,8 @@ a.view:hover {
 }
 
 /* =====================================
-   TABLET AND MOBILE
+   CODE BLOCKS
 ===================================== */
-
-@media screen and (max-width: 768px) {
-
-    .home,
-    .about,
-    .my-skills,
-    .journey,
-    .projects,
-    .certificate,
-    .gallery,
-    .contact {
-        padding: 16px;
-    }
-
-    .pages {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        gap: 12px 16px;
-        width: 100%;
-        padding: 15px 5px;
-    }
-
-    .pages a {
-        font-size: 15px;
-        margin: 0;
-        white-space: nowrap;
-    }
-
-    .xdx {
-        font-size: 30px;
-    }
-
-    .title {
-        width: 100%;
-        font-size: clamp(2rem, 7vw, 4rem);
-    }
-
-    .writing {
-        font-size: clamp(1rem, 3vw, 1.2rem);
-        line-height: 1.5;
-    }
-
-    .sub-heading {
-        font-size: clamp(1rem, 3.5vw, 1.5rem);
-    }
-
-    h2 {
-        font-size: clamp(2rem, 8vw, 3.5rem);
-    }
-
-    .project-title {
-        font-size: clamp(2rem, 8vw, 3rem);
-    }
-
-    .ab {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 10px;
-    }
-
-    .side-img {
-        width: 100%;
-    }
-
-    .laptop-table {
-        width: 100%;
-        max-width: 450px;
-        height: 260px;
-        transform: none;
-    }
-
-    .skills,
-    .attributes,
-    .certificate-container {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .skill,
-    .attribute {
-        width: 100%;
-    }
-
-    table,
-    .ctable {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    button {
-        width: 100%;
-        max-width: 300px;
-        margin-bottom: 10px;
-    }
-
-    .linki {
-        flex-wrap: wrap;
-        gap: 15px;
-    }
-}
 
 pre {
     background-color: #081B33;
@@ -454,6 +331,10 @@ code {
     font-size: 14px;
 }
 
+/* =====================================
+   EARN-VAULT
+===================================== */
+
 .earn {
     color: #087F5B;
 }
@@ -462,33 +343,14 @@ code {
     color: #9A9696;
 }
 
-.download-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    font-size: 13px;
-    height: 50px;
-    width: 100px;
-    background-color: #1068bb;
-    border: 1px solid #08235c;
-    border-radius: 13px;
-    padding: 20px;
-    box-shadow: 0 0 0 transparent;
-    transition: all 0.3s ease;
-    z-index: 1000;
-}
+/* =====================================
+   DOWNLOAD BUTTONS
+===================================== */
 
-.download-button:hover {
-    transform: translateY(-6px) scale(1.02);
-    border-color: #22D3EE;
-    box-shadow: 0 0 10px #06B6D4,
-                0 0 20px rgba(6, 182, 212, 0.3);
-}
-
+.download-button,
 .download-button2 {
     position: fixed;
     bottom: 20px;
-    right: 150px;
     font-size: 13px;
     height: 50px;
     width: 100px;
@@ -501,6 +363,15 @@ code {
     z-index: 1000;
 }
 
+.download-button {
+    right: 20px;
+}
+
+.download-button2 {
+    right: 150px;
+}
+
+.download-button:hover,
 .download-button2:hover {
     transform: translateY(-6px) scale(1.02);
     border-color: #22D3EE;
@@ -508,43 +379,9 @@ code {
                 0 0 20px rgba(6, 182, 212, 0.3);
 }
 
-@media screen and (max-width: 768px) {
-
-    .download-button,
-    .download-button2 {
-        width: 110px;
-        height: 48px;
-        padding: 0 5px;
-        font-size: 12px;
-        bottom: 15px;
-    }
-
-    .download-button {
-        right: 15px;
-    }
-
-    .download-button2 {
-        right: 135px;
-    }
-}
-
-/* Disable hover effects on touchscreens */
-@media (hover: none) {
-    button:hover,
-    .download-button:hover,
-    .download-button2:hover {
-        transform: none;
-        box-shadow: 0 0 0 transparent;
-    }
-}
-
-/* Small animation when tapped */
-button:active,
-.download-button:active,
-.download-button2:active {
-    transform: scale(0.97);
-}
-
+/* =====================================
+   TYPING ANIMATION
+===================================== */
 
 #typing-text {
     color: #7DD3FC;
@@ -559,28 +396,31 @@ button:active,
     }
 }
 
+/* =====================================
+   SCROLL TO TOP
+===================================== */
+
 #topButton {
     position: fixed;
     bottom: 25px;
     right: 25px;
-
     width: 65px;
     height: 65px;
     padding: 0;
-
     border-radius: 50%;
     font-size: 28px;
-
     display: none;
     align-items: center;
     justify-content: center;
-
     background-color: #087E8B;
     border: 2px solid #22D3EE;
     z-index: 1000;
 }
 
-/* Theme toggle button */
+/* =====================================
+   THEME TOGGLE
+===================================== */
+
 #themeToggle {
     position: fixed;
     top: 20px;
@@ -593,7 +433,10 @@ button:active,
     z-index: 2000;
 }
 
-/* Light theme */
+/* =====================================
+   LIGHT THEME
+===================================== */
+
 body.light-theme {
     background-color: #F1F5F9;
     color: #102A43;
@@ -618,4 +461,178 @@ body.light-theme button {
     color: #102A43;
     border-color: #2563EB;
     box-shadow: none;
+}
+
+/* =====================================
+   TABLET AND MOBILE
+===================================== */
+
+@media screen and (max-width: 768px) {
+
+    .home,
+    .about,
+    .my-skills,
+    .journey,
+    .projects,
+    .certificate,
+    .gallery,
+    .contact {
+        padding: 16px;
+    }
+
+    /* Navigation */
+
+    .pages {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 12px 16px;
+        width: 100%;
+        padding: 15px 5px;
+    }
+
+    .pages a {
+        font-size: 15px;
+        margin: 0;
+        white-space: nowrap;
+    }
+
+    .xdx {
+        font-size: 30px;
+    }
+
+    /* Headings and text */
+
+    .title {
+        width: 100%;
+        font-size: clamp(2rem, 7vw, 4rem);
+    }
+
+    .writing {
+        font-size: clamp(1rem, 3vw, 1.2rem);
+        line-height: 1.5;
+    }
+
+    .sub-heading {
+        font-size: clamp(1rem, 3.5vw, 1.5rem);
+    }
+
+    h2 {
+        font-size: clamp(2rem, 8vw, 3.5rem);
+    }
+
+    .project-title {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    /* Homepage */
+
+    .ab {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .side-img {
+        width: 100%;
+    }
+
+    .laptop-table {
+        width: 100%;
+        max-width: 450px;
+        height: 260px;
+        transform: none;
+    }
+
+    /* SKILLS: TWO COLUMNS ON MOBILE */
+
+    .skills {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+        align-items: stretch;
+    }
+
+    .skill {
+        width: 100%;
+        min-width: 0;
+        padding: 12px;
+    }
+
+    .python-logo,
+    .html-logo,
+    .css-logo,
+    .js-logo {
+        width: 100%;
+        max-width: 100px;
+        height: auto;
+    }
+
+    /* Other sections */
+
+    .attributes,
+    .certificate-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .attribute {
+        width: 100%;
+    }
+
+    table,
+    .ctable {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    button {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 10px;
+    }
+
+    .linki {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    /* Download buttons */
+
+    .download-button,
+    .download-button2 {
+        width: 110px;
+        height: 48px;
+        padding: 0 5px;
+        font-size: 12px;
+        bottom: 15px;
+    }
+
+    .download-button {
+        right: 15px;
+    }
+
+    .download-button2 {
+        right: 135px;
+    }
+}
+
+/* =====================================
+   TOUCHSCREEN EFFECTS
+===================================== */
+
+@media (hover: none) {
+    button:hover,
+    .download-button:hover,
+    .download-button2:hover {
+        transform: none;
+        box-shadow: 0 0 0 transparent;
+    }
+}
+
+button:active,
+.download-button:active,
+.download-button2:active {
+    transform: scale(0.97);
 }
